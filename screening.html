@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Compounds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body class="screening-page">
+    <div class="container">
+        
+        <header>
+            <img src="img/Logo_BioMol.png" class="logo-1">                  <!-- logo BioMol Panel Aging -->
+            <h1>
+                HUMAN TISSUE INTELLIGENCE <br>
+                Unlock claims from real human tissues
+            </h1>
+            <p class="subtitle">ExAdEx Longevity Lab™</p>                                  <!-- sous-titre -->
+            <div class="header-buttons-container">
+                <a href="index.html" class="nav-header-btn" title="Home">                                       <!-- HOME -->   
+                    <span class="btn-text">Longevity Lab</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.5z"
+                            stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+                <a href="https://exadex-innov.com/" target="_blank" class="nav-header-btn" title="Website">     <!-- WEBSITE -->
+                    <span class="btn-text">Website</span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M14 3h7v7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 3l-9 9" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 14v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                            stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <div id="select-hint" class="hint-box">👇 Select 1 or 2 compounds below 👇</div>
+
+        <div id="compounds-list" class="compounds-grid"></div>
+
+        <div id="results" class="results-section">
+
+            <div id="testing-animation" class="testing-animation" style="display:none;">
+                <div class="loader"></div>
+                <div class="testing-text"></div>
+                <div class="testing-images">
+                    <img src="img/pipette.png" class="testing-image"> <!-- solo 1 img -->
+                </div>
+            </div>
+
+            <div class="intro-video">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/screening.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div id="panels" style="display: none;">
+
+
+                <!-- Part 2: Grid -->
+                <div class="results-part part-2">
+                    <h3 class="part-title">Selected readouts associated to longevity</h3>
+                    <div class="multi-metrics-grid">
+                        <div id="compartments-block"></div>
+                        <div id="score-block"></div>
+                    </div>
+                </div>
+
+                <!-- Part 3: Radar -->
+                <div class="results-part part-3">
+                    <h3 class="part-title">Holistic profile</h3>
+                    <div id="radar-block">
+                        <img id="radarImage" src="radar/radar_background.png" alt="Radar plot">
+                    </div>
+                </div>
+
+                <!-- Part 4: Optimal graph -->
+                <div class="results-part part-4">
+                    <h3 class="part-title">Find your optimal combo in our database</h3>
+                    <div id="optimal-graph-container"></div>
+                        <div id="optimal-graph-block"></div>
+                        <div id="optimal-button-container"></div>
+                        <div id="optimal-graph-label" style="margin-top:10px; font-weight:bold;"></div>
+                </div>
+
+                <!-- Part 6: Videos Top Biological Signals -->
+                <div class="part-6">
+                    <div class="part-title">Explore the top 2 mechanisms addressed</div>
+                    <div class="subtitle">Dominant mechanisms for the selected compound(s)</div>
+
+                    <div id="bio-videos-container" class="bio-videos-container"></div>
+                </div>
+                
+                <!-- Wanna test your compound? -->
+                <div id="test-compound-container"></div>
+
+            </div>
+            <div id="contact-section" class="contact-section" style="display:none;">
+                <h2>Test your compound with ExAdEx</h2>
+                <p class="contact-subtitle">
+                    Unlock a full multi-endpoint longevity analysis of your molecule in our ex vivo human WAT platform.
+                </p>
+                <div class="contact-benefits">
+                    <p>🧬 24 ageing biomarkers analysed</p>
+                    <p>⚡ Metabolic + mitochondrial + inflammatory profiling</p>
+                    <p>🧠 Mechanism-level interpretation (not just scores)</p>
+                    <p>📊 Combination synergy prediction</p>
+                    <p>🧪 Ex vivo human tissue validation</p>
+                </div>
+                <div class="contact-cta">
+                    <p><strong>Want to test your compound?</strong></p>
+                    <p>Contact ExAdEx to run a custom analysis for your molecule or combination.</p>
+                </div>
+                <button class="contact-button" onclick="window.open('https://exadex-innov.com/', '_blank')">
+                    📩 Contact ExAdEx
+                </button>
+                <p class="contact-email">
+                    Direct contact: 
+                    <a href="mailto:contact@exadex-innov.com">contact@exadex-innov.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>     <!-- Tres imp pour appeler les data -->
+    <script>window.useScoreHeatmap = true;</script>
+    <script src="common.js"></script>
+    <script src="screening.js"></script>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-top">
+
+                <img src="img/logo2.png" class="footer-logo" alt="Exadex Logo">
+
+                <div class="footer-links">
+                    <a href="index.html">HOME</a>
+                    <a href="https://exadex-innov.com/" target="_blank">CONTACT</a>
+                    <a href="https://www.linkedin.com/company/exadex-innov/posts/?feedView=all" target="_blank">
+                        <img src="img/linkedin.png" 
+                            class="footer-icon linkedin-icon"
+                            onmouseover="this.src='img/linkedin_hover.png'"
+                            onmouseout="this.src='img/linkedin.png'">
+                    </a>
+                    <a href="https://www.youtube.com/@exadex-innov" target="_blank">
+                        <img src="img/youtube.png" 
+                            class="footer-icon youtube-icon"
+                            onmouseover="this.src='img/youtube_hover.png'"
+                            onmouseout="this.src='img/youtube.png'">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-copy">
+                Copyright © 2022 ExAdEx-Innov All rights reserved
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

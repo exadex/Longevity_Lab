@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Compounds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <img src="img/Logo_BioMol.png" class="logo-1">                  <!-- logo Longevity Lab -->
+            <h1>
+                HUMAN TISSUE INTELLIGENCE <br>
+                Unlock claims from real human tissues
+            </h1>
+            <p class="subtitle">ExAdEx Longevity Lab™</p>                             <!-- sous-titre -->
+            <div class="header-buttons-container">
+                <a href="index.html" class="nav-header-btn" title="Home">                                  <!-- HOME -->
+                    <span class="btn-text">Longevity Lab</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.5z"
+                            stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+                <a href="https://exadex-innov.com/" target="_blank" class="nav-header-btn" title="Website">     <!-- WEBSITE -->
+                    <span class="btn-text">Website</span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M14 3h7v7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 3l-9 9" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 14v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                            stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>              
+            
+        </header>
+
+            <div class="home-buttons">
+                <a href="screening.html" class="nav-btn btn-screening">
+                    <span class="title">SCREENING PANEL</span>
+                    <span class="subtitle">I need to screen my active ingredient</span>
+                </a>
+                <a href="regenerat_rejuvenat.html" class="nav-btn btn-regeneration">
+                    <span class="title">TISSUE REGENERATION AND REJUVENATION</span>
+                    <span class="subtitle">I want to back up claims with a holistic approach</span>
+                </a>
+            </div>
+
+            <div class="intro-video">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/index.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="common.js"></script>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-top">
+
+                <img src="img/logo2.png" class="footer-logo" alt="Exadex Logo">
+
+                <div class="footer-links">
+                    <a href="index.html">HOME</a>
+                    <a href="https://exadex-innov.com/" target="_blank">CONTACT</a>
+                    <a href="https://www.linkedin.com/company/exadex-innov/posts/?feedView=all" target="_blank">
+                        <img src="img/linkedin.png" 
+                            class="footer-icon linkedin-icon"
+                            onmouseover="this.src='img/linkedin_hover.png'"
+                            onmouseout="this.src='img/linkedin.png'">
+                    </a>
+                    <a href="https://www.youtube.com/@exadex-innov" target="_blank">
+                        <img src="img/youtube.png" 
+                            class="footer-icon youtube-icon"
+                            onmouseover="this.src='img/youtube_hover.png'"
+                            onmouseout="this.src='img/youtube.png'">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-copy">
+                Copyright © 2022 ExAdEx-Innov All rights reserved
+            </div>
+
+        </div>
+    </footer>
+    <script>
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            if (!href || href.startsWith("#") || href.startsWith("http")) return;
+
+            e.preventDefault();
+            document.body.classList.add("page-out");
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 300);
+        });
+    });
+    </script>
+</body>
+</html>

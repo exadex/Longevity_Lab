@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Compounds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body class="regeneration-page">
+    <div class="container">
+        
+        <header>
+            <img src="img/Logo_BioMol.png" class="logo-1">                  <!-- logo BioMol Panel Aging -->
+            <h1>
+                HUMAN TISSUE INTELLIGENCE <br>
+                Unlock claims from real human tissues
+            </h1>
+            <p class="subtitle">ExAdEx Longevity Lab™</p>                                  <!-- sous-titre -->
+            <div class="header-buttons-container">
+                <a href="index.html" class="nav-header-btn" title="Home">                                       <!-- HOME -->
+                    <span class="btn-text">Longevity Lab</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10.5z"
+                            stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+                <a href="https://exadex-innov.com/" target="_blank" class="nav-header-btn" title="Website">    <!-- WEBSITE -->
+                    <span class="btn-text">Website</span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M14 3h7v7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 3l-9 9" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 14v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+                            stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <div id="select-hint" class="hint-box">👇 Select 1 or 2 compounds below 👇</div>
+
+        <div id="compounds-list" class="compounds-grid"></div>
+
+        <div id="results" class="results-section">
+            <div id="testing-animation" class="testing-animation" style="display:none;">
+                <div class="loader"></div>
+                <div class="testing-text"></div>
+                <div class="testing-images">
+                    <img src="img/pipette.png" class="testing-image"> <!-- solo 1 img -->
+                </div>
+            </div>
+
+            <div class="intro-video">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/regeneration.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div id="panels" style="display: none;">
+                <!-- Part 1: Score -->
+                <div class="results-part part-1">
+                    <div id="score-cards-container">
+                        <div class="score-card" id="score-card-a" style="display: none;">
+                            <div class="compound-header">
+                                <span id="compound-name-a" class="compound-label"></span>
+                            </div>
+                            <div class="score-content">
+                                <div class="score-main">
+                                    <div class="score-label">Longevity Score</div>
+                                    <div id="score-value-a" class="score-number"></div>
+                                </div>
+                                <div class="age-gain">
+                                    <div class="age-label">Apparent Tissue Age Shift</div>
+                                    <div id="age-value-a" class="age-number"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="score-card active" id="score-card-combo">
+                            <div class="compound-header">
+                                <span id="compound-name-combo" class="compound-label"></span>
+                            </div>
+                            <div class="score-content">
+                                <div class="score-main">
+                                    <div class="score-label">Longevity Score</div>
+                                    <div id="score-value-combo" class="score-number"></div>
+                                </div>
+                                <div class="age-gain">
+                                    <div class="age-label">Apparent Tissue Age Shift</div>
+                                    <div id="age-value-combo" class="age-number"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="score-card" id="score-card-b" style="display: none;">
+                            <div class="compound-header">
+                                <span id="compound-name-b" class="compound-label"></span>
+                            </div>
+                            <div class="score-content">
+                                <div class="score-main">
+                                    <div class="score-label">Longevity Score</div>
+                                    <div id="score-value-b" class="score-number"></div>
+                                </div>
+                                <div class="age-gain">
+                                    <div class="age-label">Equivalent Biological Age Shift</div>
+                                    <div id="age-value-b" class="age-number"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Grid -->
+                <div class="results-part part-2">
+                    <h3 class="part-title">Selected hallmarks of aging and longevity</h3>
+                    <p class="subtitle">
+                        From <a href="https://doi.org/10.1016/j.cell.2022.11.001" target="_blank">Lopez-Otin et al., 2023</a>
+                    </p>
+                    <div class="multi-metrics-grid">
+                        <div id="compartments-block"></div>
+                        <div id="heatmap-block"></div>
+                        <div id="score-block"></div>
+                        <div id="mechanism-block"></div>
+                    </div>
+                </div>
+
+                <!-- Part 3: Radar -->
+                <div class="results-part part-3">
+                    <h3 class="part-title">Holistic profile</h3>
+                    <div id="radar-block">
+                        <img id="radarImage" src="radar/radar_background.png" alt="Radar plot">
+                    </div>
+                </div>
+
+                <!-- Part 4: Optimal graph -->
+                <div class="results-part part-4">
+                    <h3 class="part-title">Find your optimal combo in our database</h3>
+                    <div id="optimal-graph-container"></div>
+                        <div id="optimal-graph-block"></div>
+                        <div id="optimal-button-container"></div>
+                        <div id="optimal-graph-label" style="margin-top:10px; font-weight:bold;"></div>
+                </div>
+                
+                <!-- Part 6: Videos Top Biological Signals -->
+                <div class="part-6">
+                    <div class="part-title">Explore the top 2 longevity hallmarks addressed</div>
+                    <div class="subtitle">Dominant mechanisms for the selected compound(s)</div>
+
+                    <div id="bio-videos-container" class="bio-videos-container"></div>
+                </div>
+
+                <!-- Wanna test your compound? -->
+                <div id="test-compound-container"></div>
+
+                <!-- Part 5: References -->
+                <div class="references-section">
+                    <div class="references-inner">
+                        <h3 class="part-title">Scientific references & data sources</h3>
+                        <div id="references-block">
+                            <p><strong></strong></p>    <!-- add title here if needed -->
+                            <p>
+                                This platform is based on a combination of in vitro and in vivo literature describing key biological processes involved in tissue aging, including vascular function, extracellular matrix remodeling, inflammation, and cellular communication.
+                            </p>
+                            <p>
+                                Additional references have been integrated from vascular biology and aging research to complement classical hallmarks of aging (López-Otín et al.), particularly for pathways not explicitly covered in the original framework.
+                            </p>
+                            <p>
+                                The aim is to provide a multi-layered interface for both non-specialist users and research-oriented users.
+                            </p>
+                            <hr>
+                            <p><strong>Score calculation method</strong></p>
+                            <p>
+                                1. Selection of 24 key biomarkers measured in ExAdEx tissue models (transcriptomic and secretomic data).<br>
+                                2. Comparison to age-matched reference datasets.<br>
+                                3. Weighted integration into a composite aging score.
+                            </p>
+                            <hr>
+                            <p><strong>Bibliography</strong></p>
+                            <!-- Copy and paste for each reference items -->
+                            <div class="ref-item">
+                                <div class="ref-header">
+                                    <span class="ref-authors">Lopez et al.</span>
+                                    <span class="ref-year">(2013)</span>
+                                </div>
+                                <div class="ref-journal">
+                                    Cell
+                                </div>
+                                <div class="ref-insight">
+                                    The Hallmarks of Aging,
+                                    <a class="ref-link-inline" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3836174/" target="_blank">view article</a>
+                                </div>
+                            </div>
+                            <div class="ref-item">
+                                <div class="ref-header">
+                                    <span class="ref-authors">Lopez et al.</span>
+                                    <span class="ref-year">(2023)</span>
+                                </div>
+                                <div class="ref-journal">
+                                    Cell
+                                </div>
+                                <div class="ref-insight">
+                                    Hallmarks of aging: An expanding universe,
+                                    <a class="ref-link-inline" href="https://www.sciencedirect.com/science/article/pii/S0092867422013770" target="_blank">view article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <div id="contact-section" class="contact-section" style="display:none;">
+                <h2>Test your compound with ExAdEx</h2>
+                <p class="contact-subtitle">
+                    Unlock a full multi-endpoint longevity analysis of your molecule in our ex vivo human WAT platform.
+                </p>
+                <div class="contact-benefits">
+                    <p>🧬 24 ageing biomarkers analysed</p>
+                    <p>⚡ Metabolic + mitochondrial + inflammatory profiling</p>
+                    <p>🧠 Mechanism-level interpretation (not just scores)</p>
+                    <p>📊 Combination synergy prediction</p>
+                    <p>🧪 Ex vivo human tissue validation</p>
+                </div>
+                <div class="contact-cta">
+                    <p><strong>Want to test your compound?</strong></p>
+                    <p>Contact ExAdEx to run a custom analysis for your molecule or combination.</p>
+                </div>
+                <button class="contact-button" onclick="window.open('https://exadex-innov.com/', '_blank')">
+                    📩 Contact ExAdEx
+                </button>
+                <p class="contact-email">
+                    Direct contact: 
+                    <a href="mailto:contact@exadex-innov.com">contact@exadex-innov.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>     <!-- Tres imp pour appeler les data -->
+    <script>window.useScoreHeatmap = true;</script>
+    <script src="common.js"></script>
+    <script src="regeneration.js"></script>
+
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-top">
+
+                <img src="img/logo2.png" class="footer-logo" alt="Exadex Logo">
+
+                <div class="footer-links">
+                    <a href="index.html">HOME</a>
+                    <a href="https://exadex-innov.com/" target="_blank">CONTACT</a>
+                    <a href="https://www.linkedin.com/company/exadex-innov/posts/?feedView=all" target="_blank">
+                        <img src="img/linkedin.png" 
+                            class="footer-icon linkedin-icon"
+                            onmouseover="this.src='img/linkedin_hover.png'"
+                            onmouseout="this.src='img/linkedin.png'">
+                    </a>
+                    <a href="https://www.youtube.com/@exadex-innov" target="_blank">
+                        <img src="img/youtube.png" 
+                            class="footer-icon youtube-icon"
+                            onmouseover="this.src='img/youtube_hover.png'"
+                            onmouseout="this.src='img/youtube.png'">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-copy">
+                Copyright © 2022 ExAdEx-Innov All rights reserved
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

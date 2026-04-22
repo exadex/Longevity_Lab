@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Compounds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Test a compound</h1>
+        </header>
+
+        <div id="compounds-list" class="compounds-grid"></div>
+
+        <div id="results" class="results-section">
+            <div id="select-hint" class="hint-box">👆 Select one or two compounds above to get started</div>
+
+            <div id="testing-animation" class="testing-animation" style="display:none;">
+                <div class="loader"></div>
+                <div class="testing-text"></div>
+                <div class="testing-images">
+                    <img src="img/pipette.png" class="testing-image"> <!-- solo 1 img -->
+                </div>
+            </div>
+
+            <div class="intro-video">
+                <video autoplay muted loop playsinline>
+                    <source src="visage.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div id="panels" style="display: none;">
+                <!-- Part 1: Score -->
+                <div class="results-part part-1">
+                    <div class="score-card">
+                        <div class="compound-header">
+                            <span id="compound-name" class="compound-label"></span>
+                        </div>
+                        <div class="score-content">
+                            <div class="score-main">
+                                <div class="score-label">Anti-aging Score</div>
+                                <div id="score-value" class="score-number"></div>
+                            </div>
+                            <div class="age-gain">
+                                <div class="age-label">Age Gain</div>
+                                <div id="age-value" class="age-number"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: Heatmap -->
+                <div class="results-part part-2">
+                    <h3 class="part-title">Compartment heatmap — weighted mean log2</h3>
+                    <div id="heatmap-block"></div>
+                </div>
+
+                <!-- Part 3: Radar -->
+                <div class="results-part part-3">
+                    <h3 class="part-title">Radar plot of the compartments</h3>
+                    <div id="radar-block">
+                        <canvas id="radarCanvas" width="500" height="500"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
