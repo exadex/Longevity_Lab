@@ -649,19 +649,21 @@ header h1 {
 }
 
 #radar-block {
-    width: 500px;       /* resize the radar plot */
+    width: min(900px, 100%);
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin: 0 auto;     /* center it */
+    align-items: center;
+
+    padding: 0;              /* 🔥 QUITA padding vertical */
+    height: fit-content;     /* 🔥 evita espacio extra */
+    line-height: 0;          /* 🔥 elimina gaps raros inline */
 }
 
-#radarImage {
+#radarCanvas {
+    display: block;   /* 🔥 elimina espacio inline fantasma */
     width: 100%;
     height: auto;
-    object-fit: contain; /* 👈 clave */
-    object-position: top;
-    
 }
 
 /* Part 4: Optimal graph */

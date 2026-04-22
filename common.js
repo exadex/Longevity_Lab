@@ -296,7 +296,6 @@ function setActiveSelection(selection) {
     // Re-render heatmap and radar based on active selection
     if (selectedCompounds.length === 1) {
         const { datas } = compounds[selectedCompounds[0]];
-        updateRadarImage(compounds[selectedCompounds[0]].label);
         renderAll(datas);
     } else if (selectedCompounds.length === 2) {
         const keyA = selectedCompounds[0];
@@ -328,7 +327,6 @@ function setActiveSelection(selection) {
                 label = `${compounds[keyA].label} + ${compounds[keyB].label}`;
             }
         }
-        updateRadarImage(label);
         renderAll(datas);
         isOptimalMode = false;
     }
@@ -379,7 +377,6 @@ function renderCompoundFromData(label, datas, suffix = '') {
 
     // Only render heatmap and radar if this is the active selection
     if (suffix === '' || suffix === activeSelection) {
-        updateRadarImage(label);
         renderAll(datas);
     }
 }
@@ -434,36 +431,6 @@ function getTextColor(bgColor) {
 
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
     return brightness > 160 ? '#000000' : '#ffffff';
-}
-
-function updateRadarImage(compoundName) {
-    const img = document.getElementById("radarImage");
-
-    const radarImages = {
-        Caffeine: "radar/radar_caf.png",
-        'Anti-oxydant': "radar/radar_nac.png",
-        'Anti-inflammatory': "radar/radar_dex.png",
-        Soothing: "radar/radar_enox.png",
-        'GLP-1 agonist': "radar/radar_lira.png",
-        'Botulinum toxin': "radar/radar_botox.png",
-        'Caffeine + Anti-oxydant': "radar/radar_caf_nac.png",
-        'Caffeine + Anti-inflammatory': "radar/radar_caf_dex.png",
-        'Caffeine + Soothing': "radar/radar_caf_enox.png",
-        'Caffeine + GLP-1 agonist': "radar/radar_caf_lira.png",
-        'Caffeine + Botulinum toxin': "radar/radar_caf_botox.png",
-        'Anti-oxydant + Anti-inflammatory': "radar/radar_nac_dex.png",
-        'Anti-oxydant + Soothing': "radar/radar_nac_enox.png",
-        'Anti-oxydant + GLP-1 agonist': "radar/radar_nac_lira.png",
-        'Anti-oxydant + Botulinum toxin': "radar/radar_nac_botox.png",
-        'Anti-inflammatory + Soothing': "radar/radar_dex_enox.png",
-        'Anti-inflammatory + GLP-1 agonist': "radar/radar_dex_lira.png",
-        'Anti-inflammatory + Botulinum toxin': "radar/radar_dex_botox.png",
-        'Soothing + GLP-1 agonist': "radar/radar_enox_lira.png",
-        'Soothing + Botulinum toxin': "radar/radar_enox_botox.png",
-        'GLP-1 agonist + Botulinum toxin': "radar/radar_lira_botox.png"
-    };
-
-    img.src = radarImages[compoundName] || "radar/radar_background.png";
 }
 
 // optimal graph functions

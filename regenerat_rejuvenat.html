@@ -2,15 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Interactive Compounds</title>
+    <title>Longevity Lab</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="regeneration-page">
     <div class="container">
         
         <header>
-            <img src="img/Logo_BioMol.png" class="logo-1">                  <!-- logo BioMol Panel Aging -->
+            <img src="img/Logo_BioMol.png" class="logo-1">                  <!-- logo Longevity Lab -->
             <h1>
                 HUMAN TISSUE INTELLIGENCE <br>
                 Unlock claims from real human tissues
@@ -124,7 +125,7 @@
                 <div class="results-part part-3">
                     <h3 class="part-title">Holistic profile</h3>
                     <div id="radar-block">
-                        <img id="radarImage" src="radar/radar_background.png" alt="Radar plot">
+                        <canvas id="radarCanvas" width="500" height="500"></canvas>
                     </div>
                 </div>
 

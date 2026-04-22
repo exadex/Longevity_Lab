@@ -11,7 +11,7 @@ function renderCompound(key) {
     renderCompoundFromData(label, datas, 'combo');
 
     if (selectedCompounds.length === 1) {
-    renderOptimalGraphRegeneration(datas, label, true);
+        renderOptimalGraphRegeneration(datas, label, true);
     } else {
         // 🔴 IMPORTANTE: ocultar y limpiar sección 4
         const graphBlock = document.getElementById('optimal-graph-block');
@@ -262,6 +262,159 @@ function renderAll(datas) {
     renderScore(datas);
     renderMechanism(datas);
     renderTopBiologicalSignals(datas);
+    drawRadar(datas.heat);
+}
+
+function drawRadar(heatData) {
+    const canvas = document.getElementById('radarCanvas');
+    const width = 900;
+    const height = 400;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+
+    ctx.clearRect(0, 0, W, H);
+
+    const paddingX = 100;  // espacio lateral (labels)
+    const paddingY = 50;   // espacio vertical (mucho menor)
+    const cx = W / 2;
+    const cy = H / 2;
+    const maxR = Math.min(
+        (W / 2) - paddingX,
+        (H / 2) - paddingY
+    );
+
+    const N = compartments.length;
+
+    const values = compartments.map(c => {
+        const v = heatData?.[c];
+        return typeof v === "number" && !isNaN(v) ? v : 0;
+    });
+
+    const range = 2;
+
+    const angle = i => (Math.PI * 2 / N) * i - Math.PI / 2;
+
+    const toXY = (i, r) => ({
+        x: cx + Math.cos(angle(i)) * r,
+        y: cy + Math.sin(angle(i)) * r
+    });
+
+    const valToR = v => {
+        const clamped = Math.max(-range, Math.min(range, v));
+        return ((clamped + range) / (2 * range)) * maxR;
+    };
+
+    // =========================
+    // GRID RADIAL (líneas grises)
+    // =========================
+    for (let i = 0; i < N; i++) {
+        const { x, y } = toXY(i, maxR);
+
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(x, y);
+
+        ctx.strokeStyle = "#ddd";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
+
+    // =========================
+    // GRID CIRCULAR negro + ESCALA
+    // =========================
+    const scaleSteps = [-2, -1, 0, 1, 2];
+
+    scaleSteps.forEach(v => {
+        const r = valToR(v);
+
+        // círculo
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.strokeStyle = (v === 0) ? "#000" : "#e5e7eb";
+        ctx.lineWidth = (v === 0) ? 2.5 : 1;
+        ctx.stroke();
+
+        // labels escala
+        ctx.fillStyle = "#888";
+        ctx.font = "12px sans-serif";
+        ctx.fillText(v.toString(), cx + 6, cy - r + 4);
+    });
+
+    // =========================
+    // POLYGON
+    // =========================
+    ctx.beginPath();
+    values.forEach((v, i) => {
+        const { x, y } = toXY(i, valToR(v));
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+
+    ctx.closePath();
+    ctx.fillStyle = "rgba(246,178,35,0.25)";
+    ctx.fill();
+    ctx.strokeStyle = "#f6b223";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // =========================
+    // DOTS
+    // =========================
+    values.forEach((v, i) => {
+        const { x, y } = toXY(i, valToR(v));
+
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = "#f6b223";
+        ctx.fill();
+    });
+
+    // =========================
+    // LABELS (SIN CORTAR + ANGLED SI NECESARIO)
+    // =========================
+    ctx.fillStyle = "#111";
+    ctx.font = "16px sans-serif";
+
+    const labelRadius = maxR + 20;  // cambiar numero para cambar distancia de labels al centro
+
+    compartments.forEach((name, i) => {
+        const a = angle(i);
+        const { x, y } = toXY(i, labelRadius);
+
+        const cos = Math.cos(a);
+        const sin = Math.sin(a);
+
+        const isLeft = cos < 0;
+
+        // 🔥 detección de zona "conflictiva"
+        const needsAngle = Math.abs(cos) < 0.25; // zona superior/inferior
+
+        ctx.save();
+        ctx.translate(x, y);
+
+        if (needsAngle) {
+            // 🔥 angled label (evita overlap)
+            const rotation = a + Math.PI / 2;
+
+            ctx.rotate(rotation);
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(name, 0, 0);
+        } else {
+            // normal
+            ctx.textAlign = isLeft ? "right" : "left";
+            ctx.textBaseline = "middle";
+            ctx.fillText(name, isLeft ? -10 : 10, 0);
+        }
+
+        ctx.restore();
+    });
 }
 
 function renderOptimalGraphRegeneration(datas, label, isSolo) {
