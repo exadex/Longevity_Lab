@@ -951,7 +951,7 @@ header h1 {
 }
 
 .references-section {
-    background-image: url("../img/pipettes2.png");
+    background-image: url("./img/pipettes2.png");
     background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
