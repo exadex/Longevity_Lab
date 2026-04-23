@@ -950,7 +950,6 @@ header h1 {
     position: relative;
 }
 
-/* REFERENCES */
 .references-section {
     background-image: url("../img/pipettes2.png");
     background-size: 120%;
@@ -1017,7 +1016,9 @@ header h1 {
     font-size: 15px;
     line-height: 1.7;
     color: #4b5563;
-    max-width: 850px;
+    max-width: 1100px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* párrafos */
