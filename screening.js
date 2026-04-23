@@ -85,7 +85,12 @@ function renderScreeningCompartments(datas) {
 
     const sorted = getSortedCompartments(datas);
 
-    let html = '<div class="table">';
+    let html = `<div class="table">
+        <div class="row header">
+            <div class="cell header-cell">
+            </div>
+        </div>
+    `;
 
     sorted.forEach(item => {
         const newName = screeningCompartmentsMap[item.name] || item.name;
@@ -107,6 +112,14 @@ function renderScreeningScore(datas) {
     const sorted = getSortedCompartments(datas);
 
     let html = '<div class="table">';
+
+    html += `
+        <div class="row header">
+            <div class="cell score-cell header-cell">
+                Variation (%)
+            </div>
+        </div>
+    `;
 
     sorted.forEach(item => {
         const value = item.value;

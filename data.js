@@ -26,13 +26,13 @@ const compounds = {
             heat: { 
                 'Nutrient-sensing': 0.889824269,
                 'Stem cell capacity': -0.313295619,
-                'Cell-ECM communication': 0.494311192,
+                'Cell-ECM communication': 0.417931107,
                 'Mitochondrial function': -0.085210037,
                 'Chronic inflammation control': 1.024462525,
                 'Neural communication': 0.240828991,
                 'Vascular/Lymphatic Flow': -0.67702961
             },
-            antiAging: 0.359252188, 
+            antiAging: 0.522854568,
             ageGain: 4.9,
         }
     },
@@ -42,13 +42,13 @@ const compounds = {
             heat: { 
                 'Nutrient-sensing': -0.098801912,
                 'Stem cell capacity': 0.166624451,
-                'Cell-ECM communication': -0.710448894,
+                'Cell-ECM communication': -0.809661052,
                 'Mitochondrial function': 0.213619804,
                 'Chronic inflammation control': -0.237989807,
                 'Neural communication': 0.637926737,
                 'Vascular/Lymphatic Flow': 0.793948078
             },
-            antiAging: -0.13180946, 
+            antiAging: -0.181192592,
             ageGain: -2.0,
         }
     },
@@ -58,13 +58,13 @@ const compounds = {
             heat: { 
                 'Nutrient-sensing': 1.439916494,
                 'Stem cell capacity': -1.744054095,
-                'Cell-ECM communication': 1.376324726,
+                'Cell-ECM communication': 1.244967621,
                 'Mitochondrial function': 0.01276083,
                 'Chronic inflammation control': 1.330258958,
                 'Neural communication': 0.755055507,
                 'Vascular/Lymphatic Flow': -0.194488716
             },
-            antiAging: 0.64012325, 
+            antiAging: 0.862993288,
             ageGain: 7.4,
         }
     },
@@ -74,13 +74,13 @@ const compounds = {
             heat: { 
                 'Nutrient-sensing': 0.59217289,
                 'Stem cell capacity': -0.781312497,
-                'Cell-ECM communication': -0.120205679,
+                'Cell-ECM communication': -0.217644562,
                 'Mitochondrial function': -0.174555969,
                 'Chronic inflammation control': 0.416352352,
                 'Neural communication': -0.064046621,
                 'Vascular/Lymphatic Flow': -0.54795084
             },
-            antiAging: 0.11566192, 
+            antiAging: 0.058313943,
             ageGain: 1.7,
         }
     },
@@ -90,13 +90,13 @@ const compounds = {
             heat: { 
                 'Nutrient-sensing': 0.794075859,
                 'Stem cell capacity': 0.319309553,
-                'Cell-ECM communication': -0.59856128,
+                'Cell-ECM communication': -0.637625157,
                 'Mitochondrial function': 0.725785573,
                 'Chronic inflammation control': 0.429288758,
                 'Neural communication': -0.384254667,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: 0.26190119, 
+            antiAging: 0.231115816,
             ageGain: 3.7,
         }
     },
@@ -112,7 +112,7 @@ const compounds = {
                 'Neural communication': -0.853438165,
                 'Vascular/Lymphatic Flow': -0.420184612
             },
-            antiAging: -0.44653357, 
+            antiAging: -0.312859761, 
             ageGain: -5.8,
         }
     }
@@ -134,13 +134,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 0.593236415,
                 'Stem cell capacity': 0.02264843,
-                'Cell-ECM communication': 0.132883166,
+                'Cell-ECM communication': 0.049653459,
                 'Mitochondrial function': 0.123970852,
                 'Chronic inflammation control': 0.645726825,
                 'Neural communication': 0.518797414,
-                'Vascular/Lymphatic Flow': 0.163431585
+                'Vascular/Lymphatic Flow': 0.352654772
             },
-            antiAging: 0.294142315,
+            antiAging: 0.364650923,
             ageGain: 4.1
         }
     },
@@ -151,13 +151,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 1.274888827,
                 'Stem cell capacity': -0.742523162,
-                'Cell-ECM communication': 1.111720666,
+                'Cell-ECM communication': 0.996856666,
                 'Mitochondrial function': -0.01663043,
                 'Chronic inflammation control': 1.238520028,
                 'Neural communication': 0.600787552,
                 'Vascular/Lymphatic Flow': -0.339250984
             },
-            antiAging: 0.646010876,
+            antiAging: 0.818182011,
             ageGain: 7.5
         }
     },
@@ -168,13 +168,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 0.800528855,
                 'Stem cell capacity': -0.453700682,
-                'Cell-ECM communication': 0.30995613,
+                'Cell-ECM communication': 0.227258406,
                 'Mitochondrial function': -0.112013817,
                 'Chronic inflammation control': 0.842029473,
                 'Neural communication': 0.149366307,
                 'Vascular/Lymphatic Flow': -0.586674471
             },
-            antiAging: 0.282202719,
+            antiAging: 0.38349238,
             ageGain: 4.0
         }
     },
@@ -183,15 +183,15 @@ const combinationTemplates = {
         compounds: ["caffeine", "glp1agonist"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.861099746,
+                'Nutrient-sensing': 0.895296977,
                 'Stem cell capacity': 0.129528001,
-                'Cell-ECM communication': 0.16644945,
+                'Cell-ECM communication': 0.101264228,
                 'Mitochondrial function': 0.48248689,
                 'Chronic inflammation control': 0.845910395,
                 'Neural communication': 0.053303893,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: 0.478858626,
+            antiAging: 0.510016156,
             ageGain: 6.2
         }
     },
@@ -202,13 +202,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 0.554641019,
                 'Stem cell capacity': -0.374597187,
-                'Cell-ECM communication': 0.351846359,
+                'Cell-ECM communication': 0.298380299,
                 'Mitochondrial function': -0.215880527,
                 'Chronic inflammation control': 0.648168489,
                 'Neural communication': -0.087451156,
                 'Vascular/Lymphatic Flow': -0.497238111
             },
-            antiAging: 0.12717105,
+            antiAging: 0.272140269,
             ageGain: 1.9
         }
     },
@@ -219,13 +219,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 0.978300972,
                 'Stem cell capacity': -0.406579113,
-                'Cell-ECM communication': 0.75029264,
+                'Cell-ECM communication': 0.628579019,
                 'Mitochondrial function': 0.153362112,
                 'Chronic inflammation control': 0.859784328,
                 'Neural communication': 0.719916876,
-                'Vascular/Lymphatic Flow': 0.202265096
+                'Vascular/Lymphatic Flow': 0.49741704
             },
-            antiAging: 0.550191947,
+            antiAging: 0.638216204,
             ageGain: 6.8
         }
     },
@@ -236,13 +236,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 0.384880449,
                 'Stem cell capacity': -0.117756634,
-                'Cell-ECM communication': -0.297278643,
+                'Cell-ECM communication': -0.395249509,
                 'Mitochondrial function': 0.097167072,
                 'Chronic inflammation control': 0.220049704,
                 'Neural communication': 0.42733473,
-                'Vascular/Lymphatic Flow': 0.191802287
+                'Vascular/Lymphatic Flow': 0.391378403
             },
-            antiAging: 0.125264588,
+            antiAging: 0.075748941,
             ageGain: 1.9
         }
     },
@@ -251,15 +251,15 @@ const combinationTemplates = {
         compounds: ["antioxydant", "glp1agonist"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.526212528,
+                'Nutrient-sensing': 0.598709123,
                 'Stem cell capacity': 0.273504022,
-                'Cell-ECM communication': -0.632127564,
+                'Cell-ECM communication': -0.689235925,
                 'Mitochondrial function': 0.572135843,
                 'Chronic inflammation control': 0.229105189,
                 'Neural communication': 0.331272316,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: 0.204399469,
+            antiAging: 0.14831055,
             ageGain: 3.0
         }
     },
@@ -270,13 +270,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': -0.137397308,
                 'Stem cell capacity': -0.038653138,
-                'Cell-ECM communication': -0.199534777,
+                'Cell-ECM communication': -0.229298425,
                 'Mitochondrial function': -0.006699638,
                 'Chronic inflammation control': -0.232292592,
                 'Neural communication': 0.190517267,
-                'Vascular/Lymphatic Flow': null
+                'Vascular/Lymphatic Flow': 0.429708271
             },
-            antiAging: -0.104612476,
+            antiAging: -0.130434859,
             ageGain: -1.6
         }
     },
@@ -287,13 +287,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 1.185593413,
                 'Stem cell capacity': -1.070134977,
-                'Cell-ECM communication': 0.927365605,
+                'Cell-ECM communication': 0.806183966,
                 'Mitochondrial function': -0.04343421,
                 'Chronic inflammation control': 1.056086976,
                 'Neural communication': 0.509324869,
                 'Vascular/Lymphatic Flow': -0.300527353
             },
-            antiAging: 0.531876352,
+            antiAging: 0.660099148,
             ageGain: 6.6
         }
     },
@@ -302,15 +302,15 @@ const combinationTemplates = {
         compounds: ["antiinflammatory", "glp1agonist"],
         datas: {
             heat: {
-                'Nutrient-sensing': 1.246164304,
+                'Nutrient-sensing': 1.277234273,
                 'Stem cell capacity': -0.299699542,
-                'Cell-ECM communication': 0.783858924,
+                'Cell-ECM communication': 0.680189787,
                 'Mitochondrial function': 0.51187815,
                 'Chronic inflammation control': 1.059967898,
                 'Neural communication': 0.413262455,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: 0.707418044,
+            antiAging: 0.798746077,
             ageGain: 7.9
         }
     },
@@ -321,13 +321,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 0.939705576,
                 'Stem cell capacity': -0.885560154,
-                'Cell-ECM communication': 0.969255833,
+                'Cell-ECM communication': 0.877305859,
                 'Mitochondrial function': -0.14730092,
                 'Chronic inflammation control': 0.862225992,
                 'Neural communication': 0.272507405,
-                'Vascular/Lymphatic Flow': -0.458514481
+                'Vascular/Lymphatic Flow': -0.262197485
             },
-            antiAging: 0.391963924,
+            antiAging: 0.55929417,
             ageGain: 5.3
         }
     },
@@ -336,15 +336,15 @@ const combinationTemplates = {
         compounds: ["soothing", "glp1agonist"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.733504968,
+                'Nutrient-sensing': 0.806001563,
                 'Stem cell capacity': -0.010877062,
-                'Cell-ECM communication': -0.263712359,
+                'Cell-ECM communication': -0.34363874,
                 'Mitochondrial function': 0.455683111,
                 'Chronic inflammation control': 0.425407836,
                 'Neural communication': -0.160109035,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: 0.305408792,
+            antiAging: 0.23744148,
             ageGain: 4.3
         }
     },
@@ -355,13 +355,13 @@ const combinationTemplates = {
             heat: {
                 'Nutrient-sensing': 0.346285053,
                 'Stem cell capacity': -0.596737675,
-                'Cell-ECM communication': -0.022461813,
+                'Cell-ECM communication': -0.051693478,
                 'Mitochondrial function': -0.27842268,
                 'Chronic inflammation control': 0.222491368,
                 'Neural communication': -0.300864085,
                 'Vascular/Lymphatic Flow': -0.458514481
             },
-            antiAging: -0.067881327,
+            antiAging: -0.016887154,
             ageGain: -1.0
         }
     },
@@ -370,15 +370,15 @@ const combinationTemplates = {
         compounds: ["glp1agonist", "botulinumtoxin"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.487617132,
+                'Nutrient-sensing': 0.560113727,
                 'Stem cell capacity': 0.068226433,
-                'Cell-ECM communication': 0.3518164,
+                'Cell-ECM communication': -0.177687656,
                 'Mitochondrial function': 0.3518164,
                 'Chronic inflammation control': 0.231546852,
                 'Neural communication': -0.525009717,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: -0.09231619,
+            antiAging: 0.138884929,
             ageGain: -1.05
         }
     }

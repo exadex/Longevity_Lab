@@ -230,7 +230,9 @@ function renderMechanism(datas) {
 
     let html = `<div class="table">
                     <div class="row header">
-                        <div class="cell">Potential mechanism</div>
+                        <div class="cell" style="justify-content: center; text-align: center;">
+                            Potential mechanism
+                        </div>
                     </div>
                 `;
 
