@@ -547,7 +547,20 @@ function renderTopBiologicalSignals(datas) {
     }).join("");
 }
 
-buildButtons();
-renderSpecialButton();
+function safeGet(id) {
+    return document.getElementById(id);
+}
+
+function initCommon() {
+    const list = safeGet('compounds-list');
+
+    if (list) {
+        buildButtons();
+    }
+
+    renderSpecialButton();
+}
+
+document.addEventListener("DOMContentLoaded", initCommon);
 
 console.log("common.js loaded");

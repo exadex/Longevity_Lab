@@ -111,18 +111,34 @@ function renderScreeningScore(datas) {
     sorted.forEach(item => {
         const value = item.value;
 
-        const color = value !== -Infinity ? scoreColor(value) : '#eee';
         const sign = value >= 0 ? '+' : '';
 
+        const isNoData = value === -Infinity;
+
         const displayValue =
-            value !== -Infinity
+            !isNoData
                 ? `${sign}${Math.round(value)}%`
                 : 'no data';
 
+        const width = isNoData ? 0 : scoreToSymWidth(value) * 100;
+        const color = isNoData ? 'transparent' : scoreColor(value);
+
         html += `
             <div class="row">
-                <div class="cell" style="background:${color}">
-                    ${displayValue}
+                <div class="cell score-cell">
+
+                    <div class="score-bar"
+                        style="
+                            width: ${width}%;
+                            background: ${color};
+                            border-radius: 8px;
+                        ">
+                    </div>
+
+                    <div class="score-text">
+                        ${displayValue}
+                    </div>
+
                 </div>
             </div>
         `;
@@ -130,6 +146,19 @@ function renderScreeningScore(datas) {
 
     html += '</div>';
     block.innerHTML = html;
+}
+
+function scoreToSymWidth(value) {
+    if (value === null || value === undefined || isNaN(value)) return 0.5;
+
+    const v = Math.max(-100, Math.min(100, value));
+
+    // -100 → 0.01
+    // 0 → 0.5
+    // 100 → 1
+    const normalized = (v + 100) / 200;
+
+    return Math.max(0.01, Math.min(1, normalized));
 }
 
 function renderAll(datas) {

@@ -47,10 +47,11 @@ h1 {
 
 /* Logo pequeño arriba a la izquierda */
 .logo-1 {
-    position: absolute;     /* para poder moverlo libremente */
-    top: 0px;              /* distancia desde arriba */
-    left: 750px;             /* distancia desde la izquierda, poner right si lo quieres en el lado derecho */
-    height: 190px;           /* tamaño */
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 190px;
 }
 
 /* Botones de contacto y de la pagina EFFECTS */
@@ -635,6 +636,36 @@ header h1 {
 #score-block .cell {
     height: 44px;
     font-size: 0.88rem;         /* tamano heatmap y score */
+}
+
+.score-cell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-bar {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.score-text {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: #111;
 }
 
 /* Part 3: Radar */
