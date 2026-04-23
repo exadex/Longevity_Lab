@@ -348,8 +348,6 @@ function updateActiveCardClasses() {
     });
 }
 
-
-
 function renderCompoundFromData(label, datas, suffix = '') {
     const nameEl = document.getElementById(`compound-name${suffix ? '-' + suffix : ''}`);
     const scoreEl = document.getElementById(`score-value${suffix ? '-' + suffix : ''}`);
@@ -431,15 +429,6 @@ function getTextColor(bgColor) {
 
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
     return brightness > 160 ? '#000000' : '#ffffff';
-}
-
-// optimal graph functions
-function getStatus(value) {
-    if (value > 75) return 'optimal';
-    if (value > 50) return 'borderline';
-    if (value > 25) return 'caution';
-    if (value >= 0) return 'critical';
-    return 'empty';
 }
 
 // Mapa de colores

@@ -137,7 +137,7 @@ function renderScore(datas) {
         const value = datas.score?.[name];
 
         let displayText = '-';
-        let style = '';
+        let style = 'background:#eee; color:#333;';
 
         if (value != null) {
             if (value >= -20 && value <= 20) {
