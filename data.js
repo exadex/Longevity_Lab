@@ -17,6 +17,18 @@ function buildScoreFromHeat(heatMap) {
     return score;
 }
 
+function antiAgingToAgeGain(v) {
+    if (v === null || v === undefined || isNaN(v)) return null;
+
+    return 10 * Math.tanh(v);
+}
+
+function buildAgeGain(datas) {
+    if (!datas || datas.antiAging === undefined) return null;
+
+    return antiAgingToAgeGain(datas.antiAging);
+}
+
 const compartments = ['Nutrient-sensing', 'Stem cell capacity', 'Cell-ECM communication', 'Mitochondrial function', 'Chronic inflammation control', 'Neural communication', 'Vascular/Lymphatic Flow'];
 
 const compounds = {
@@ -33,7 +45,6 @@ const compounds = {
                 'Vascular/Lymphatic Flow': -0.67702961
             },
             antiAging: 0.522854568,
-            ageGain: 4.9,
         }
     },
     antioxydant: {
@@ -49,7 +60,6 @@ const compounds = {
                 'Vascular/Lymphatic Flow': 0.793948078
             },
             antiAging: -0.181192592,
-            ageGain: -2.0,
         }
     },
     antiinflammatory: {
@@ -65,7 +75,6 @@ const compounds = {
                 'Vascular/Lymphatic Flow': -0.194488716
             },
             antiAging: 0.862993288,
-            ageGain: 7.4,
         }
     },
     soothing: {
@@ -81,7 +90,6 @@ const compounds = {
                 'Vascular/Lymphatic Flow': -0.54795084
             },
             antiAging: 0.058313943,
-            ageGain: 1.7,
         }
     },
     glp1agonist: {
@@ -97,7 +105,6 @@ const compounds = {
                 'Vascular/Lymphatic Flow': null
             },
             antiAging: 0.231115816,
-            ageGain: 3.7,
         }
     },
     botulinumtoxin: {
@@ -113,7 +120,6 @@ const compounds = {
                 'Vascular/Lymphatic Flow': -0.420184612
             },
             antiAging: -0.312859761, 
-            ageGain: -5.8,
         }
     }
 };
@@ -123,6 +129,7 @@ Object.values(compounds).forEach(compound => {
 
     if (heat) {
         compound.datas.score = buildScoreFromHeat(heat);
+        compound.datas.ageGain = buildAgeGain(compound.datas);
     }
 });
 
@@ -141,7 +148,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': 0.352654772
             },
             antiAging: 0.364650923,
-            ageGain: 4.1
         }
     },
     caffeine_antiinflammatory: {
@@ -158,7 +164,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': -0.339250984
             },
             antiAging: 0.818182011,
-            ageGain: 7.5
         }
     },
     caffeine_soothing: {
@@ -175,7 +180,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': -0.586674471
             },
             antiAging: 0.38349238,
-            ageGain: 4.0
         }
     },
     caffeine_glp1agonist: {
@@ -192,7 +196,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': null
             },
             antiAging: 0.510016156,
-            ageGain: 6.2
         }
     },
     caffeine_botulinumtoxin: {
@@ -209,7 +212,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': -0.497238111
             },
             antiAging: 0.272140269,
-            ageGain: 1.9
         }
     },
     antioxydant_antiinflammatory: {
@@ -226,7 +228,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': 0.49741704
             },
             antiAging: 0.638216204,
-            ageGain: 6.8
         }
     },
     antioxydant_soothing: {
@@ -243,7 +244,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': 0.391378403
             },
             antiAging: 0.075748941,
-            ageGain: 1.9
         }
     },
     antioxydant_glp1agonist: {
@@ -260,7 +260,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': null
             },
             antiAging: 0.14831055,
-            ageGain: 3.0
         }
     },
     antioxydant_botulinumtoxin: {
@@ -277,7 +276,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': 0.429708271
             },
             antiAging: -0.130434859,
-            ageGain: -1.6
         }
     },
     antiinflammatory_soothing: {
@@ -294,7 +292,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': -0.300527353
             },
             antiAging: 0.660099148,
-            ageGain: 6.6
         }
     },
     antiinflammatory_glp1agonist: {
@@ -311,7 +308,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': null
             },
             antiAging: 0.798746077,
-            ageGain: 7.9
         }
     },
     antiinflammatory_botulinumtoxin: {
@@ -328,7 +324,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': -0.262197485
             },
             antiAging: 0.55929417,
-            ageGain: 5.3
         }
     },
     soothing_glp1agonist: {
@@ -345,7 +340,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': null
             },
             antiAging: 0.23744148,
-            ageGain: 4.3
         }
     },
     soothing_botulinumtoxin: {
@@ -362,7 +356,6 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': -0.458514481
             },
             antiAging: -0.016887154,
-            ageGain: -1.0
         }
     },
     glp1agonist_botulinumtoxin: {
@@ -379,15 +372,15 @@ const combinationTemplates = {
                 'Vascular/Lymphatic Flow': null
             },
             antiAging: 0.138884929,
-            ageGain: -1.05
         }
     }
 };
 
 Object.values(combinationTemplates).forEach(combo => {
-    const heat = combo.datas?.heat;
+    const datas = combo.datas;
 
-    if (heat) {
-        combo.datas.score = buildScoreFromHeat(heat);
+    if (datas) {
+        combo.datas.score = buildScoreFromHeat(datas.heat);
+        combo.datas.ageGain = buildAgeGain(datas);
     }
 });
