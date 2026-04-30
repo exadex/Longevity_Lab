@@ -493,7 +493,7 @@ function resetPart4() {
 
 const pathwayVideoMap = {
     "Cell-ECM communication": "videos/cellECMcomm.mp4",
-    "Chronic inflammation": "videos/inflammaging.mp4",
+    "Chronic inflammation control": "videos/inflammaging.mp4",
     "Nutrient-sensing": "videos/metabolism.mp4",
     "Mitochondrial function": "videos/mitochondria.mp4",
     "Vascular/Lymphatic Flow": "videos/vascular.mp4",
@@ -507,7 +507,7 @@ function renderTopBiologicalSignals(datas, useScreeningNames = false) {
 
     const screeningVideoTitleMap = {
         "Cell-ECM communication": "Collagen synthesis & fibroblasts",
-        "Chronic inflammation": "Inflammaging protection",
+        "Chronic inflammation control": "Inflammaging protection",
         "Nutrient-sensing": "Metabolic homeostasis",
         "Mitochondrial function": "Energy & mitochondria",
         "Vascular/Lymphatic Flow": "Vascular & lymphatic flow",
