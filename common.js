@@ -443,38 +443,33 @@ const colorMap = {
 let isOptimalMode = false; // fuera de cualquier función, al inicio de tu script
 
 function getBestCombination(selectedCompound) {
-    // asegurarnos de que es un string
     if (Array.isArray(selectedCompound)) selectedCompound = selectedCompound[0];
     
     let bestCombo = null;
-    let maxOptimalCount = -1; // número de valores >= 75%
+    let maxAntiAging = -Infinity;
 
-    // recorremos todas las combinaciones
     for (const comboKey in combinationTemplates) {
         const comboParts = comboKey.split('_').map(normalizeKey);
         const selected = normalizeKey(selectedCompound);
 
-        // ahora sí consistente
         if (!comboParts.includes(selected)) continue;
 
         const combo = combinationTemplates[comboKey];
-        const score = combo.datas.score;
-        if (!score) continue;
+        const antiAging = combo.datas?.antiAging;
 
-        // contar cuántos valores >= 75%
-        const optimalCount = Object.values(score)
-            .filter(v => v !== null && v !== undefined && Math.abs(v) >= 75)
-            .length;
+        if (antiAging === null || antiAging === undefined) continue;
 
-        if (optimalCount > maxOptimalCount) {
-            maxOptimalCount = optimalCount;
+        if (antiAging > maxAntiAging) {
+            maxAntiAging = antiAging;
             bestCombo = combo;
         }
     }
 
-    // si no encontró ninguna combinación, devolver solo el compuesto
     if (!bestCombo) {
-        return { datas: { score: compounds[selectedCompound] || {} }, label: selectedCompound };
+        return {
+            datas: compounds[selectedCompound].datas,
+            label: compounds[selectedCompound].label
+        };
     }
 
     return bestCombo;

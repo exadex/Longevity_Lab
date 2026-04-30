@@ -424,7 +424,7 @@ function renderOptimalGraphRegeneration(datas, label, isSolo) {
     if (!graphBlock) return;
 
     // 🔴 BLOQUEO GLOBAL: si hay más de 1 compuesto, no mostrar nunca
-    if (!datas || !Array.isArray(Object.keys(datas.score || {}))) {
+    if (!datas || !datas.score) {
         graphBlock.innerHTML = '';
         const buttonContainer = document.getElementById('optimal-button-container');
         const labelContainer = document.getElementById('optimal-graph-label');
