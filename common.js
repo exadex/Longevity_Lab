@@ -501,9 +501,19 @@ const pathwayVideoMap = {
     "Neural communication": "videos/neuralcomm.mp4"
 };
 
-function renderTopBiologicalSignals(datas) {
+function renderTopBiologicalSignals(datas, useScreeningNames = false) {
     const container = document.getElementById("bio-videos-container");
     if (!container) return;
+
+    const screeningVideoTitleMap = {
+        "Cell-ECM communication": "Collagen synthesis & fibroblasts",
+        "Chronic inflammation": "Inflammaging protection",
+        "Nutrient-sensing": "Metabolic homeostasis",
+        "Mitochondrial function": "Energy & mitochondria",
+        "Vascular/Lymphatic Flow": "Vascular & lymphatic flow",
+        "Stem cell activation": "Stem cell regeneration",
+        "Neural communication": "Neural communication"
+    };
 
     const score = datas?.score || datas?.heat;
     if (!score) {
@@ -535,7 +545,11 @@ function renderTopBiologicalSignals(datas) {
                     target="_blank" 
                     class="bio-video-title"
                 >
-                    ${item.key}
+                    ${
+                        useScreeningNames
+                            ? (screeningVideoTitleMap[item.key] || item.key)
+                            : item.key
+                    }
                 </a>
             </div>
         `;

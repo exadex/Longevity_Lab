@@ -177,7 +177,7 @@ function scoreToSymWidth(value) {
 function renderAll(datas) {
     renderScreeningCompartments(datas);
     renderScreeningScore(datas);
-    renderTopBiologicalSignals(datas);
+    renderTopBiologicalSignals(datas, true);
     drawRadar(datas.heat);
 }
 
