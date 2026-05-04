@@ -140,7 +140,7 @@ function renderScore(datas) {
         let style = 'background:#eee; color:#333;';
 
         if (value != null) {
-            if (value >= -20 && value <= 20) {
+            if (value > -20 && value < 20) {
                 // NEUTRAL → sin fondo
                 displayText = 'neutral';
                 style = 'background:#e5e7eb; color:#111;'
@@ -169,9 +169,9 @@ function getMechanismText(value, compartment) {
 
         let direction;
 
-        if (value >= -20 && value <= 20) {
+        if (value > -20 && value < 20) {
             direction = "neutral";
-        } else if (value > 20) {
+        } else if (value >= 20) {
             direction = "positive";
         } else {
             direction = "negative";

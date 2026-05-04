@@ -427,10 +427,10 @@ function renderCompoundFromData(label, datas, suffix = '') {
 
     if (ageEl) {
         const ag = datas.ageGain ?? 0;
+        const anti = datas.antiAging ?? 0;
 
-        // 👉 NUEVO: zona neutral
-        if (ag >= -1.9 && ag <= 1.9) {
-            ageEl.textContent = `neutral`;
+        if (anti < 0.255) {
+            ageEl.textContent = `no physiological gain`;
             ageEl.style.color = '#999999';
         } else {
             const label = ag >= 0 ? 'years younger' : 'years older';
@@ -448,22 +448,22 @@ function renderCompoundFromData(label, datas, suffix = '') {
 }
 
 function getScoreColor(score) {
-    if (score > 0.263) return '#4CB292';
-    if (score < -0.322) return '#993C1E';
+    if (score >= 0.255) return '#4CB292';
+    if (score <= -0.310) return '#993C1E';
     return '#999999';
 }
 
 function heatmapColor(v) {
     // 🟡 NEUTRAL ZONE (±20% variation in log2FC)
-    if (v >= -0.322 && v <= 0.263) return '#e5e7eb';
+    if (v > -0.310 && v < 0.255) return '#e5e7eb';
 
     // 🔥 POSITIVE SIDE
     if (v >= 0.807) return '#00ad76';   // ≥ +75%
     if (v >= 0.585) return '#52c09d';   // ≥ +50%
-    if (v > 0.263)  return '#8edac2';   // +20% to +50%
+    if (v >= 0.255)  return '#8edac2';   // +20% to +50%
 
     // 🔴 NEGATIVE SIDE
-    if (v <= -0.322 && v > -1.0) return '#dd937c';
+    if (v <= -0.310 && v > -1.0) return '#dd937c';
     if (v <= -1.0 && v > -2.0) return '#d17759';
     return '#993C1E';
 }
@@ -471,8 +471,8 @@ function heatmapColor(v) {
 function scoreColor(v) {
     if (v >= 75) return '#00ad76';
     if (v >= 50) return '#52c09d';
-    if (v > 20) return '#8edac2';
-    if (v >= -20 && v <= 20) return '#e5e7eb';
+    if (v >= 20) return '#8edac2';
+    if (v > -20 && v < 20) return '#e5e7eb';
     if (v >= -50) return '#dd937c';
     if (v >= -75) return '#d17759';
     return '#993C1E';

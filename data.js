@@ -220,15 +220,15 @@ const compounds = {
         label: 'Botulinum toxin',
         datas: {
             heat: { 
-                'Nutrient-sensing': -0.227453232,
-                'Stem cell capacity': -0.51763418,
-                'Cell-ECM communication': 0.019428415,
-                'Mitochondrial function': -0.520778338,
-                'Chronic inflammation control': -0.229850928,
-                'Neural communication': -0.853438165,
-                'Vascular/Lymphatic Flow': -0.420184612
+                'Nutrient-sensing': -0.160397657,
+                'Stem cell capacity': -0.362088521,
+                'Cell-ECM communication': -0.071025181,
+                'Mitochondrial function': -0.717382272,
+                'Chronic inflammation control': -0.087833722,
+                'Neural communication': -0.840524779,
+                'Vascular/Lymphatic Flow': -0.410034021
             },
-            antiAging: -0.312859761, 
+            antiAging: -0.309199678, 
         }
     }
 };
@@ -303,15 +303,15 @@ const combinationTemplates = {
         compounds: ["caffeine", "botulinumtoxin"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.554641019,
-                'Stem cell capacity': -0.374597187,
-                'Cell-ECM communication': 0.298380299,
-                'Mitochondrial function': -0.215880527,
-                'Chronic inflammation control': 0.648168489,
-                'Neural communication': -0.087451156,
-                'Vascular/Lymphatic Flow': -0.497238111
+                'Nutrient-sensing': 0.574757691,
+                'Stem cell capacity': -0.327933489,
+                'Cell-ECM communication': 0.271244221,
+                'Mitochondrial function': -0.274861708,
+                'Chronic inflammation control': 0.690773651,
+                'Neural communication': -0.08357714,
+                'Vascular/Lymphatic Flow': -0.490132697
             },
-            antiAging: 0.272140269,
+            antiAging: 0.266291636,
         }
     },
     antioxydant_antiinflammatory: {
@@ -367,15 +367,15 @@ const combinationTemplates = {
         compounds: ["antioxydant", "botulinumtoxin"],
         datas: {
             heat: {
-                'Nutrient-sensing': -0.137397308,
-                'Stem cell capacity': -0.038653138,
-                'Cell-ECM communication': -0.229298425,
-                'Mitochondrial function': -0.006699638,
-                'Chronic inflammation control': -0.232292592,
-                'Neural communication': 0.190517267,
-                'Vascular/Lymphatic Flow': 0.429708271
+                'Nutrient-sensing': -0.117280635,
+                'Stem cell capacity': 0.008010559,
+                'Cell-ECM communication': -0.292615942,
+                'Mitochondrial function': -0.065680819,
+                'Chronic inflammation control': -0.132880548,
+                'Neural communication': 0.194391282,
+                'Vascular/Lymphatic Flow': 0.432753448
             },
-            antiAging: -0.130434859,
+            antiAging: -0.139774028,
         }
     },
     antiinflammatory_soothing: {
@@ -415,15 +415,15 @@ const combinationTemplates = {
         compounds: ["antiinflammatory", "botulinumtoxin"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.939705576,
-                'Stem cell capacity': -0.885560154,
-                'Cell-ECM communication': 0.877305859,
-                'Mitochondrial function': -0.14730092,
-                'Chronic inflammation control': 0.862225992,
-                'Neural communication': 0.272507405,
-                'Vascular/Lymphatic Flow': -0.262197485
+                'Nutrient-sensing': 0.959822249,
+                'Stem cell capacity': -0.776678193,
+                'Cell-ECM communication': 0.85016978,
+                'Mitochondrial function': -0.206282101,
+                'Chronic inflammation control': 0.904831154,
+                'Neural communication': 0.276381421,
+                'Vascular/Lymphatic Flow': -0.259152308
             },
-            antiAging: 0.55929417,
+            antiAging: 0.541498829,
         }
     },
     soothing_glp1agonist: {
@@ -447,15 +447,15 @@ const combinationTemplates = {
         compounds: ["soothing", "botulinumtoxin"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.346285053,
-                'Stem cell capacity': -0.596737675,
-                'Cell-ECM communication': -0.051693478,
-                'Mitochondrial function': -0.27842268,
-                'Chronic inflammation control': 0.222491368,
-                'Neural communication': -0.300864085,
-                'Vascular/Lymphatic Flow': -0.458514481
+                'Nutrient-sensing': 0.366401726,
+                'Stem cell capacity': -0.487855714,
+                'Cell-ECM communication': -0.115010995,
+                'Mitochondrial function': -0.33740386,
+                'Chronic inflammation control': 0.265096529,
+                'Neural communication': -0.296990069,
+                'Vascular/Lymphatic Flow': -0.451409067
             },
-            antiAging: -0.016887154,
+            antiAging: -0.016605281,
         }
     },
     glp1agonist_botulinumtoxin: {
@@ -463,15 +463,15 @@ const combinationTemplates = {
         compounds: ["glp1agonist", "botulinumtoxin"],
         datas: {
             heat: {
-                'Nutrient-sensing': 0.560113727,
-                'Stem cell capacity': 0.068226433,
-                'Cell-ECM communication': -0.177687656,
-                'Mitochondrial function': 0.3518164,
-                'Chronic inflammation control': 0.231546852,
-                'Neural communication': -0.525009717,
+                'Nutrient-sensing': 0.507733804,
+                'Stem cell capacity': 0.11489013,
+                'Cell-ECM communication': -0.241005174,
+                'Mitochondrial function': 0.29283522,
+                'Chronic inflammation control': 0.274152014,
+                'Neural communication': -0.521135701,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: 0.138884929,
+            antiAging: 0.16123145,
         }
     }
 };
