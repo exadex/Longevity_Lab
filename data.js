@@ -153,7 +153,7 @@ const compounds = {
                 'Neural communication': 0.240828991,
                 'Vascular/Lymphatic Flow': -0.67702961
             },
-            antiAging: 0.522854568,
+            antiAging: 0.231673,
         }
     },
     antioxydant: {
@@ -168,7 +168,7 @@ const compounds = {
                 'Neural communication': 0.637926737,
                 'Vascular/Lymphatic Flow': 0.793948078
             },
-            antiAging: -0.181192592,
+            antiAging: 0.2717606,
         }
     },
     antiinflammatory: {
@@ -183,7 +183,7 @@ const compounds = {
                 'Neural communication': 0.755055507,
                 'Vascular/Lymphatic Flow': -0.194488716
             },
-            antiAging: 0.862993288,
+            antiAging: 0.6185198,
         }
     },
     soothing: {
@@ -198,7 +198,7 @@ const compounds = {
                 'Neural communication': -0.064046621,
                 'Vascular/Lymphatic Flow': -0.54795084
             },
-            antiAging: 0.058313943,
+            antiAging: -0.1089893,
         }
     },
     glp1agonist: {
@@ -213,7 +213,7 @@ const compounds = {
                 'Neural communication': -0.384254667,
                 'Vascular/Lymphatic Flow': null
             },
-            antiAging: 0.231115816,
+            antiAging: 0.1719739,
         }
     },
     botulinumtoxin: {
@@ -228,7 +228,7 @@ const compounds = {
                 'Neural communication': -0.840524779,
                 'Vascular/Lymphatic Flow': -0.410034021
             },
-            antiAging: -0.309199678, 
+            antiAging: -0.5814387, 
         }
     }
 };
