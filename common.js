@@ -1,3 +1,66 @@
+/* =========================================================
+   COMMON.JS
+
+   👉 Ce fichier est le "cerveau" commun du site.
+   Il est utilisé à la fois pour les pages Screening et Regeneration.
+
+   Ici on gère :
+   - Les boutons des composés (les clicks utilisateurs)
+   - Les sélections (1 ou 2 composés)
+   - L’affichage des résultats (scores, graph, etc.)
+   - Les combinaisons entre composés
+   - Les animations (petite séquence "testing")
+
+   ---------------------------------------------------------
+   🔑 VARIABLES IMPORTANTES
+
+   - selectedCompounds → contient les composés sélectionnés
+   - activeSelection → indique ce qu’on affiche (A, B ou combo)
+   - isOptimalMode → active/désactive le mode "best combination"
+
+   ---------------------------------------------------------
+   🧩 FONCTIONS PRINCIPALES
+
+   - buildButtons()
+     → crée les boutons des composés automatiquement
+
+   - handleCompoundSelection()
+     → gère le click utilisateur (ajoute/enlève un composé)
+
+   - renderSelected()
+     → décide quoi afficher (1 composé ou combo)
+
+   - renderCombination()
+     → calcule et affiche une combinaison
+
+   - renderCompoundFromData()
+     → affiche les scores et données
+
+   - getBestCombination()
+     → trouve la meilleure combinaison possible (basée sur antiAging)
+
+   - renderTopBiologicalSignals()
+     → affiche les 2 pathways les plus importants avec vidéo
+
+   ---------------------------------------------------------
+   🎬 ANIMATION
+
+   - runTestingAnimation()
+     → petite animation avant d’afficher les résultats
+     (juste pour rendre l’expérience plus sympa)
+
+   ---------------------------------------------------------
+   ⚠️ À SAVOIR
+
+   - Les données viennent de data.js (compounds + combinations)
+   - Si quelque chose ne marche pas :
+     → vérifier les clés (noms EXACTS des pathways/composés)
+     → vérifier que les données existent bien
+
+    Éviter les modifications sans vérifier leur impact !
+
+   ========================================================= */
+
 let selectedCompounds = [];
 let activeSelection = 'combo'; // 'a', 'combo', 'b'
 
@@ -181,10 +244,10 @@ function runTestingAnimation(callback) {
     const allPhrases = [firstPhrase, ...restPhrases];
 
     const imageFiles = [
-        "img/pipette.png",
-        "img/brown_models.png",
-        "img/exadex_adipose.png",
-        "img/exadex_vascularized.png"
+        "img/charging_animation_1.png",
+        "img/charging_animation_2.png",
+        "img/charging_animation_3.png",
+        "img/charging_animation_4.png"
     ];
 
     imageFiles.forEach(src => {
@@ -365,12 +428,17 @@ function renderCompoundFromData(label, datas, suffix = '') {
     if (ageEl) {
         const ag = datas.ageGain ?? 0;
 
-        const label = ag >= 0 ? 'years younger' : 'years older';
-        const absValue = Math.abs(ag);
+        // 👉 NUEVO: zona neutral
+        if (ag >= -1.9 && ag <= 1.9) {
+            ageEl.textContent = `neutral`;
+            ageEl.style.color = '#999999';
+        } else {
+            const label = ag >= 0 ? 'years younger' : 'years older';
+            const absValue = Math.abs(ag);
 
-        ageEl.textContent = `${absValue.toFixed(1)} ${label}`;
-
-        ageEl.style.color = ag >= 0 ? '#4CB292' : '#993C1E';
+            ageEl.textContent = `${absValue.toFixed(1)} ${label}`;
+            ageEl.style.color = ag >= 0 ? '#4CB292' : '#993C1E';
+        }
     }
 
     // Only render heatmap and radar if this is the active selection

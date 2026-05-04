@@ -1,3 +1,29 @@
+/* =========================================================
+  STYLE — STRUCTURE & USAGE
+
+   Ici se font toutes les modifications du style de l’interface HTML : texte, couleurs, 
+   tailles, espacements, animations, fond d'écran, etc.
+
+   Structure générale du fichier :
+   - Head / design général de tout le site (à priori ne pas changer)
+   - Body : 
+    - Header : logos, titre, soustitre, boutons HOME et WEBSITE
+    - Hint box : boîte d’introduction avec le message d’accroche
+    - Compounds grid : grille de boutons pour les composés
+    - Results section : partie principale avec les résultats (score, heatmap, radar, graph optimal, etc.)
+    - Footer : section de contact et références du bas de page
+
+   Convention de nommage :
+   - Les styles sont organisés par classes CSS (ex: .score-cell, .bio-video-card)
+   - Pour identifier un élément, rechercher sa classe dans le HTML (class="nom-de-la-class") 
+   - Dans ce fichier, cela sera nomée .nom-de-la-class,
+   - Utiliser Ctrl + F pour naviguer rapidement dans le fichier
+   - Modifier le style comme souhaité
+
+   Éviter les modifications sans vérifier leur impact !
+
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +34,7 @@ html, body {
     height: 100%;
 }
 
-
-body {
+body {  /* tout le style de fond et de base du site sans le titre (head) */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     padding: 40px 0px;
@@ -79,7 +104,6 @@ h1 {
     margin-top: 135px;
 }
 
-/* Logo pequeño arriba a la izquierda */
 .logo-1 {
     position: absolute;
     top: 0px;
@@ -88,7 +112,6 @@ h1 {
     height: 190px;
 }
 
-/* Botones de contacto y de la pagina EFFECTS */
 .header-buttons-container {
     position: absolute;
     top: 20px;
@@ -98,7 +121,6 @@ h1 {
     gap: 12px;
 }
 
-/* botón base */
 .nav-header-btn {
     display: flex;
     align-items: center;
@@ -116,7 +138,6 @@ h1 {
     transition: all 0.25s ease;
 }
 
-/* texto home y website */
 .btn-text {
     font-size: 0.95rem;
     text-align: right;

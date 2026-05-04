@@ -1,3 +1,112 @@
+/* =========================================================
+   DATA.JS
+
+   👉 Ce fichier contient TOUTES les données du projet.
+   C’est ici qu’on définit :
+   - Les composés (caffeine, anti-oxydant, etc.)
+   - Les combinaisons entre composés
+   - Les scores (heat, antiAging, etc.)
+
+   ---------------------------------------------------------
+   🧠 LOGIQUE GÉNÉRALE
+
+   Chaque composé contient :
+   - heat → log2FoldChange (ajouté MANUELLEMENT)
+   - antiAging → longevity score (ajouté MANUELLEMENT)
+
+   Ensuite, le code calcule automatiquement :
+   - score → converti le FC en % 
+   - ageGain → conversion en "années gagnées/perdues"
+
+   👉 Donc :
+   VOUS entrez seulement :
+      ✔ log2FC (nomé heat ici)
+      ✔ longevity score (nomé antiAging)
+
+   Le reste est calculé automatiquement.
+
+   ---------------------------------------------------------
+   🔢 FONCTIONS IMPORTANTES
+
+   - log2fcToPercent(v)
+     → convertit le log2FC en %
+
+   - buildScoreFromHeat(heatMap)
+     → applique la conversion
+
+   - antiAgingToAgeGain(v)
+     → transforme le score antiAging en "années" par tanh sur un intervalle de +/- 10 ans
+
+   - buildAgeGain(datas)
+     → applique cette transformation
+
+   ---------------------------------------------------------
+   🧩 STRUCTURE DES DONNÉES
+
+   1. COMPOUNDS (composés seuls)
+
+   Exemple :
+   caffeine: {
+       label: 'Caffeine',
+       datas: {
+           heat: { ... },
+           antiAging: 0.52
+       }
+   }
+
+   2. COMBINATIONTEMPLATES (combinaisons)
+
+   Exemple :
+   caffeine_antioxydant: {
+       label: 'Caffeine + Anti-oxydant',
+       compounds: ["caffeine", "antioxydant"],
+       datas: {
+           heat: { ... },
+           antiAging: 0.36
+       }
+   }
+
+   👉 IMPORTANT :
+   - Le nom de la clé doit suivre :
+     "composéA_composéB"
+   - L’ordre n’a pas d’importance (le code gère ça)
+
+   ---------------------------------------------------------
+   ⚙️ CALCUL AUTOMATIQUE
+
+   À la fin du fichier, deux boucles font le travail :
+
+   - Pour chaque composé :
+     → calcule score + ageGain
+
+   - Pour chaque combinaison :
+     → calcule score + ageGain
+
+   👉 Vous n’avez RIEN à faire pour ça.
+
+   ---------------------------------------------------------
+   ⚠️ ERREURS FRÉQUENTES
+
+   Si quelque chose ne marche pas :
+   - vérifier que les noms des pathways sont EXACTS
+   - vérifier qu’il n’y a pas de fautes dans les clés
+   - vérifier que "heat" et "antiAging" existent bien
+
+   Exemple :
+   ❌ "Chronic-inflammation" ne vas pas marcher si le compartiment ici s’appelle "Chronic inflammation"
+   ✔ "Chronic inflammation"
+
+   ---------------------------------------------------------
+   💡 CONSEILS
+
+   - Toujours copier-coller un bloc existant pour créer un nouveau
+   - Modifier seulement les valeurs
+   - Ne pas changer la structure
+
+   → si ça casse… c’est souvent une clé mal écrite 😄
+
+   ========================================================= */
+
 function log2fcToPercent(v) {
     if (v === null || v === undefined || isNaN(v)) return null;
 
@@ -123,15 +232,6 @@ const compounds = {
         }
     }
 };
-
-Object.values(compounds).forEach(compound => {
-    const heat = compound.datas?.heat;
-
-    if (heat) {
-        compound.datas.score = buildScoreFromHeat(heat);
-        compound.datas.ageGain = buildAgeGain(compound.datas);
-    }
-});
 
 const combinationTemplates = {
     caffeine_antioxydant: {
@@ -375,6 +475,15 @@ const combinationTemplates = {
         }
     }
 };
+
+Object.values(compounds).forEach(compound => {
+    const heat = compound.datas?.heat;
+
+    if (heat) {
+        compound.datas.score = buildScoreFromHeat(heat);
+        compound.datas.ageGain = buildAgeGain(compound.datas);
+    }
+});
 
 Object.values(combinationTemplates).forEach(combo => {
     const datas = combo.datas;

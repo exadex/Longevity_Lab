@@ -131,7 +131,7 @@ function renderScreeningScore(datas) {
         const displayValue =
             !isNoData
                 ? `${sign}${Math.round(value)}%`
-                : 'no data';
+                : 'N/A';
 
         const width = isNoData ? 0 : scoreToSymWidth(value) * 100;
         const color = isNoData ? 'transparent' : scoreColor(value);
